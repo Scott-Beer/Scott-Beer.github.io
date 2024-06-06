@@ -18,20 +18,33 @@
         }
         .container {
             text-align: center;
+            position: relative;
         }
         .coming-soon {
             font-size: 3em;
-            animation: fadeIn 2s infinite;
+            position: relative;
+            z-index: 1;
         }
-        @keyframes fadeIn {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
+        .flash {
+            position: absolute;
+            top: 50%;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+            animation: flash 3s infinite;
+        }
+        @keyframes flash {
+            0% { left: -50%; }
+            50% { left: 50%; }
+            100% { left: -50%; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="coming-soon">Coming Soon</h1>
+        <div class="flash"></div>
     </div>
 </body>
 </html>
