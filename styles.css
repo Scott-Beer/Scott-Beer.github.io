@@ -1,147 +1,309 @@
 /* Reset default margins and paddings */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set body with background color and font */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111111;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #10A37F, #0A5233);
+  position: relative;
+  text-align: center;
+}
+
+.welcome {
+  font-size: 3rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.scroll-down {
+  margin-top: 20px;
+  font-size: 2rem;
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  animation: bounce 2s infinite, pulse 2s infinite, glow 1.5s infinite alternate;
+}
+
+/* Mystery Button */
+.mystery-button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #0A5233;
+  background-color: #10A37F;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  animation: pulseButton 2s infinite;
+}
+
+.mystery-button:hover {
+  background-color: #0A5233;
+  transform: translateY(-3px);
+}
+
+/* Content Section */
+.content {
+  min-height: 100vh;
+  padding: 50px 20px;
+  background-color: #1f1f1f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideUp 1s forwards 2s;
+}
+
+.content-box {
+  max-width: 800px;
+  text-align: center;
+}
+
+.content-box h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #10A37F;
+}
+
+.content-box p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Pong Game Section */
+.pong-section {
+  min-height: 100vh;
+  padding: 50px 20px;
+  background-color: #111111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.pong-game {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #0A5233;
+  border: 2px solid #10A37F;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.paddle {
+  position: absolute;
+  width: 10px;
+  height: 50px;
+  background-color: #10A37F;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.left-paddle {
+  left: 10px;
+  animation: movePaddleLeft 4s infinite alternate;
+}
+
+.right-paddle {
+  right: 10px;
+  animation: movePaddleRight 4s infinite alternate;
+}
+
+.ball {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #10A37F;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: moveBall 3s infinite linear;
+}
+
+.pong-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #10A37F;
+}
+
+.pong-section p {
+  font-size: 1rem;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Animations */
+
+/* Fade In for Welcome Message */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
-  
-  /* Set body with background color and font */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #111111;
+}
+
+/* Bounce Animation for Arrow */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(15px);
+  }
+  60% {
+    transform: translateY(10px);
+  }
+}
+
+/* Pulse Animation for Arrow */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
     color: #ffffff;
-    overflow-x: hidden;
   }
-  
-  /* Hero Section */
-  .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #10A37F, #0A5233);
-    position: relative;
-  }
-  
-  .welcome {
-    font-size: 3rem;
-    font-weight: bold;
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-  }
-  
-  /* Enhanced Scroll-Down Arrow */
-  .scroll-down {
-    margin-top: 20px;
-    font-size: 2rem;
-    color: #ffffff;
-    text-decoration: none;
-    position: relative;
-    display: inline-block;
-    animation: bounce 2s infinite, pulse 2s infinite, glow 1.5s infinite alternate;
-  }
-  
-  /* Content Section */
-  .content {
-    min-height: 100vh;
-    padding: 50px 20px;
-    background-color: #1f1f1f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: slideUp 1s forwards 2s;
-  }
-  
-  .content-box {
-    max-width: 800px;
-    text-align: center;
-  }
-  
-  .content-box h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+  50% {
+    transform: scale(1.2);
     color: #10A37F;
   }
-  
+  100% {
+    transform: scale(1);
+    color: #ffffff;
+  }
+}
+
+/* Glow Animation for Arrow */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #10A37F, 0 0 10px #10A37F, 0 0 20px #0A5233;
+  }
+  to {
+    text-shadow: 0 0 20px #10A37F, 0 0 30px #10A37F, 0 0 40px #0A5233;
+  }
+}
+
+/* Slide Up Animation for Content */
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse Animation for Mystery Button */
+@keyframes pulseButton {
+  0%, 100% {
+    box-shadow: 0 0 10px #10A37F;
+  }
+  50% {
+    box-shadow: 0 0 20px #10A37F;
+  }
+}
+
+/* Pong Game Animations */
+@keyframes moveBall {
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    top: 10%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    top: 90%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+  }
+  75% {
+    top: 10%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes movePaddleLeft {
+  0% {
+    height: 30px;
+  }
+  100% {
+    height: 70px;
+  }
+}
+
+@keyframes movePaddleRight {
+  0% {
+    height: 70px;
+  }
+  100% {
+    height: 30px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome {
+    font-size: 2.5rem;
+  }
+
+  .scroll-down {
+    font-size: 1.5rem;
+  }
+
+  .mystery-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .content-box h2 {
+    font-size: 2rem;
+  }
+
   .content-box p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-size: 1rem;
   }
-  
-  /* Animations */
-  
-  /* Fade In for Welcome Message */
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
+
+  .pong-game {
+    width: 250px;
+    height: 160px;
   }
-  
-  /* Bounce Animation for Arrow */
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(15px);
-    }
-    60% {
-      transform: translateY(10px);
-    }
+
+  .pong-section h2 {
+    font-size: 1.5rem;
   }
-  
-  /* Pulse Animation for Arrow */
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-      color: #ffffff;
-    }
-    50% {
-      transform: scale(1.2);
-      color: #10A37F;
-    }
-    100% {
-      transform: scale(1);
-      color: #ffffff;
-    }
+
+  .pong-section p {
+    font-size: 0.9rem;
   }
-  
-  /* Glow Animation for Arrow */
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 5px #10A37F, 0 0 10px #10A37F, 0 0 20px #0A5233;
-    }
-    to {
-      text-shadow: 0 0 20px #10A37F, 0 0 30px #10A37F, 0 0 40px #0A5233;
-    }
-  }
-  
-  /* Slide Up Animation for Content */
-  @keyframes slideUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .welcome {
-      font-size: 2.5rem;
-    }
-  
-    .scroll-down {
-      font-size: 1.5rem;
-    }
-  
-    .content-box h2 {
-      font-size: 2rem;
-    }
-  
-    .content-box p {
-      font-size: 1rem;
-    }
-  }
+}
